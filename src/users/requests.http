@@ -1,0 +1,28 @@
+### create user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "testq2@q.com",
+  "password": "test"
+}
+
+
+### find a user by id
+GET http://localhost:3000/auth/2
+
+### find all users
+GET http://localhost:3000/auth?email=testq2@q.com
+
+### delete a user by id
+DELETE http://localhost:3000/auth/2
+
+### update a user by id
+PATCH http://localhost:3000/auth/1
+Content-Type: application/json
+
+
+{
+  "email": "11@qq.com",
+  "password": "11"
+}
