@@ -12,13 +12,13 @@ Content-Type: application/json
 GET http://localhost:3000/auth/1
 
 ### find all users
-GET http://localhost:3000/auth?email=testq2@q.com
+GET http://localhost:3000/auth?email=11@qq.com
 
 ### delete a user by id
 DELETE http://localhost:3000/auth/2
 
 ### update a user by id
-PATCH http://localhost:3000/auth/1
+PATCH http://localhost:3000/auth/3
 Content-Type: application/json
 
 
