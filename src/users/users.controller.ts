@@ -31,12 +31,11 @@ export class UsersController {
   // @Serialize(UserDto)
   @Get('/:id')
   async findUser(@Param('id') id: string) {
-    console.log('handle is running');
     const user = await this.userService.findOne(parseInt(id));
-    if (!user) {
-      return new NotFoundException('User ' + id + ' is  not found');
+    if (user) {
+      return user;
     }
-    return user;
+    throw new NotFoundException('User ' + id + ' is  not found');
   }
 
   @Get()
@@ -45,12 +44,22 @@ export class UsersController {
   }
 
   @Delete('/:id')
-  removeUser(@Param('id') id: string) {
-    return this.userService.remove(parseInt(id));
+  async removeUser(@Param('id') id: string) {
+    const user = await this.userService.remove(parseInt(id));
+    console.log({ user });
+    if (user) {
+      return user;
+    }
+    // return的话会走拦截器，因此需要设置为throw，或者设置拦截器根据statusCode来判断是否抛出异常
+    throw new NotFoundException('User ' + id + ' is not found');
   }
 
   @Patch('/:id')
-  updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
-    return this.userService.update(parseInt(id), body);
+  async updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
+    const user = await this.userService.update(parseInt(id), body);
+    if (user) {
+      return user;
+    }
+    throw new NotFoundException('User not found');
   }
 }
