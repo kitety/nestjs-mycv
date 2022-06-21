@@ -15,7 +15,7 @@ GET http://localhost:3000/auth/1
 GET http://localhost:3000/auth?email=11@qq.com
 
 ### delete a user by id
-DELETE http://localhost:3000/auth/2
+DELETE http://localhost:3000/auth/1
 
 ### update a user by id
 PATCH http://localhost:3000/auth/3
