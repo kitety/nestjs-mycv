@@ -34,3 +34,10 @@ Content-Type: application/json
   "email": "11@qq.com",
   "password": "11"
 }
+
+
+### set color
+GET http://localhost:3000/auth/colors/blue
+
+### get color
+GET http://localhost:3000/auth/colors

@@ -6,9 +6,13 @@ import { ReportsModule } from './reports/reports.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { Report } from './reports/report.entity';
+import { CookieSessionModule } from 'nestjs-cookie-session';
 
 @Module({
   imports: [
+    CookieSessionModule.forRoot({
+      session: { secret: 'keyboard cat' },
+    }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'db.sqlite',

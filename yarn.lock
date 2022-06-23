@@ -2017,6 +2017,11 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+create-nestjs-middleware-module@^0.2.1:
+  version "0.2.2"
+  resolved "https://registry.npmmirror.com/create-nestjs-middleware-module/-/create-nestjs-middleware-module-0.2.2.tgz#ead56cbb2f7fe8b86f6595d0f2d172127e4ecd8e"
+  integrity sha512-S9+DdSEQE1dNVIxIoaJ05ZvxaRiRCH0lBguU90/MCASMFXfYDQAY3HE75/iJlH2nM6ARSsVuoVYJp4YehglDEQ==
+
 create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
@@ -3947,6 +3952,13 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmmirror.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+nestjs-cookie-session@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmmirror.com/nestjs-cookie-session/-/nestjs-cookie-session-2.0.1.tgz#92802516280dc9f9e6c729078cc8ca43e92a978e"
+  integrity sha512-7hTdacknCUeRMVS13uegjtcKwTVcbHHAsfaUcjxYXdQjdlH1sjFhFcMT7uUVTNdSFg+PqOCb1LvVQmHIs/mrOQ==
+  dependencies:
+    create-nestjs-middleware-module "^0.2.1"
 
 node-addon-api@^4.2.0:
   version "4.3.0"
