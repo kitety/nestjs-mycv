@@ -27,7 +27,6 @@ export class UsersController {
 
   @Get('/colors')
   getColor(@Session() session: any) {
-    console.log(1111);
     return session.color;
   }
 
@@ -36,15 +35,35 @@ export class UsersController {
     session.color = color;
   }
 
+  @Get('/whoami')
+  async whoAmI(@Session() session: any) {
+    const userId = session?.userId;
+    if (userId) {
+      const user = await this.userService.findOne(parseInt(userId));
+      return user;
+    } else {
+      return undefined;
+    }
+  }
+
+  @Post('/signout')
+  async signOut(@Session() session: any) {
+    session.userId = null;
+  }
+
   @Post('/signup')
-  createUser(@Body() body: CreateUserDto) {
-    return this.authService.signup(body.email, body.password);
+  async createUser(@Body() body: CreateUserDto, @Session() session: any) {
+    const user = await this.authService.signup(body.email, body.password);
+    session.userId = user.id;
+    return user;
   }
 
   @Post('/signin')
-  async signin(@Body() body: CreateUserDto) {
-    console.log(body);
+  async signin(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signin(body.email, body.password);
+    // 如果已经注册了，再改变，就会什么都不变，不会写入
+    session.userId = user.id;
+
     return user;
   }
 
