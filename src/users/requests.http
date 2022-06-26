@@ -45,5 +45,8 @@ GET http://localhost:3000/auth/colors
 ### who am i
 GET http://localhost:3000/auth/whoami
 
+### who am i
+GET http://localhost:3000/auth/whoami2
+
 ### sign signout
 POST http://localhost:3000/auth/signout
