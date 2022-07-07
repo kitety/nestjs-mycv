@@ -1,19 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const cookieSession = require('cookie-session');
+import { setupApp } from './setup-app';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  app.useGlobalPipes(
-    new ValidationPipe({
-      // 可以将多余的字段给去除掉
-      whitelist: true,
-    }),
-  );
+  setupApp(app);
   await app.listen(3000);
 }
 
