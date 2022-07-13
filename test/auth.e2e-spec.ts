@@ -18,6 +18,8 @@ describe('Authentication System (e2e)', () => {
 
   it('handle a signup request', () => {
     const email = 'test123@qq.com';
+    // 使用随机邮箱
+    // 创建之后删除
     return request(app.getHttpServer())
       .post('/auth/signup')
       .send({
