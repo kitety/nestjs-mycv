@@ -1,0 +1,32 @@
+### create user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "testq4@q.com",
+  "password": "test"
+}
+
+### sign in
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "testq4@q.com",
+  "password": "test"
+}
+
+
+### 创建记录
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+  "make": "toyota",
+  "model": "corolla",
+  "year": 2009,
+  "mileage": 2303,
+  "lng": 0,
+  "lat": 0,
+  "price": 21332
+}
