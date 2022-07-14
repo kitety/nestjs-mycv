@@ -33,4 +33,21 @@ describe('Authentication System (e2e)', () => {
         expect(email).toEqual(email);
       });
   });
+  it('signup as a user then get the currently logged in user', async () => {
+    const email = 'test123@qq.com';
+    const res = await request(app.getHttpServer())
+      .post('/auth/signup')
+      .send({
+        email,
+        password: 'test',
+      })
+      .expect(201);
+    const cookie = res.get('Set-Cookie');
+    const { body } = await request(app.getHttpServer())
+      .get('/auth/whoami2')
+      .set('Cookie', cookie)
+      .expect(200);
+
+    expect(body.email).toEqual(email);
+  });
 });
