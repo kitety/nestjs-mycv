@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../users/user.entity';
 
 @Entity()
 export class Report {
@@ -30,4 +31,11 @@ export class Report {
   // 里程数
   @Column()
   mileage: number;
+
+  @ManyToOne(() => User, (user) => user.reports)
+  user: User;
 }
+
+// 和循环引用相关的，不能直接引用，因此使用函数的这种形式，执行的时候将会在后面执行
+// @ManyToOne(() => User, (user) => user.reports)
+// 获取相关的实例

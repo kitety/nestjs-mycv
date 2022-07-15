@@ -1,0 +1,16 @@
+{
+  "price": 21332,
+  "make": "toyota",
+  "model": "corolla",
+  "year": 2009,
+  "lng": 0,
+  "lat": 0,
+  "mileage": 2303,
+  "userId": 11,
+  "user": {
+    "id": 11,
+    "email": "testq4@q.com",
+    "password": "b504d8502841ec14.f5c4d41119bdf9fa6ca46c2b94fdafec81bdadc1e993b0a8b0586ec63d29f74f"
+  },
+  "id": 7
+}
