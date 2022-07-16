@@ -33,7 +33,7 @@ Content-Type: application/json
 
 
 ### 改变记录的是否通过
-PATCH http://localhost:3000/reports/14
+PATCH http://localhost:3000/reports/17
 Content-Type: application/json
 
 {

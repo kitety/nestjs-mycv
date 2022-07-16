@@ -1,10 +1,14 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { APP_PIPE } from '@nestjs/core';
-import { CookieSessionModule } from 'nestjs-cookie-session';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
@@ -19,9 +23,10 @@ const cookieSession = require('cookie-session');
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    CookieSessionModule.forRoot({
-      session: { secret: 'keyboard cat' },
-    }),
+    // 有问题，在middleware中读取不到
+    // CookieSessionModule.forRoot({
+    //   session: { secret: 'keyboard cat' },
+    // }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
@@ -54,16 +59,16 @@ const cookieSession = require('cookie-session');
     },
   ],
 })
-export class AppModule {
+export class AppModule implements NestModule {
   // 程序启动，自动调用
   // 新的方法使用 cookieSession in AppModule
-  // configure(consumer: MiddlewareConsumer) {
-  //   consumer
-  //     .apply(
-  //       cookieSession({
-  //         keys: ['sdsdsdsdsd'],
-  //       }),
-  //     )
-  //     .forRoutes('*');
-  // }
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(
+        cookieSession({
+          keys: ['sdsdsdsdsd'],
+        }),
+      )
+      .forRoutes('*');
+  }
 }
