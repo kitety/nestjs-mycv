@@ -22,8 +22,8 @@ POST http://localhost:3000/reports
 Content-Type: application/json
 
 {
-  "make": "toyota",
-  "model": "corolla",
+  "make": "toyota2",
+  "model": "corolla1",
   "year": 2009,
   "mileage": 2303,
   "lng": 0,
@@ -39,3 +39,6 @@ Content-Type: application/json
 {
   "approved": false
 }
+
+### get estimate price
+GET http://localhost:3000/reports?make=toyota&model=corolla&year=2009&mileage=2303&lng=0&lat=0
