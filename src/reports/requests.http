@@ -30,3 +30,12 @@ Content-Type: application/json
   "lat": 0,
   "price": 21332
 }
+
+
+### 改变记录的是否通过
+PATCH http://localhost:3000/reports/14
+Content-Type: application/json
+
+{
+  "approved": false
+}

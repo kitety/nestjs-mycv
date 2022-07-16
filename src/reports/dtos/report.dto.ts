@@ -4,6 +4,9 @@ export class ReportDto {
   @Expose()
   price: number;
 
+  @Expose()
+  approved: boolean;
+
   // 商标
   @Expose()
   make: string;
@@ -29,7 +32,7 @@ export class ReportDto {
   mileage: number;
 
   // obj 实体对象
-  @Transform(({ value }) => value.user.id)
+  @Transform(({ obj }) => obj.user.id)
   @Expose()
   userId: number;
 }
