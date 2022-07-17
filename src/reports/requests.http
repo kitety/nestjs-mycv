@@ -37,7 +37,7 @@ PATCH http://localhost:3000/reports/17
 Content-Type: application/json
 
 {
-  "approved": false
+  "approved": true
 }
 
 ### get estimate price
