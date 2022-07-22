@@ -11,6 +11,7 @@ import { ReportsModule } from './reports/reports.module';
 import { APP_PIPE } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import * as ormconfig from './ormconfig';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const cookieSession = require('cookie-session');
@@ -25,7 +26,7 @@ const cookieSession = require('cookie-session');
     // CookieSessionModule.forRoot({
     //   session: { secret: 'keyboard cat' },
     // }),
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot(ormconfig),
     // TypeOrmModule.forRootAsync({
     //   inject: [ConfigService],
     //   useFactory: (config: ConfigService) => {
